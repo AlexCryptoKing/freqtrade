@@ -27,7 +27,8 @@ freqtrade hyperopt --hyperopt-loss SharpeHyperOptLossDaily --spaces buy sell sto
 
 ## Contributing
 JOIN MY DISCORD - https://discord.gg/vfJQ5pftwX
-
+## Contributing
+JOIN MY DISCORD - https://discord.gg/vfJQ5pftwX
 
 Contributions to the project are welcome! If you find any issues or have suggestions for improvements, please open an
 issue or submit a pull request on the [GitHub repository](https://github.com/AlexCryptoKing/freqail.git).
