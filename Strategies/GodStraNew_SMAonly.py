@@ -448,8 +448,54 @@ def condition_generator(dataframe, operator, indicator, crossed_indicator, real_
     return condition, dataframe
 
 
-class GodStraNew(IStrategy):
+class GodStraNew_SMAonly(IStrategy):
     # #################### RESULTS PASTE PLACE ####################
+    
+    # Buy hyperspace params:
+    buy_params = {
+        "buy_crossed_indicator0": "SMA-110",
+        "buy_crossed_indicator1": "SMA-6",
+        "buy_crossed_indicator2": "SMA-100",
+        "buy_indicator0": "SMA-5",
+        "buy_indicator1": "SMA-5",
+        "buy_indicator2": "SMA-55",
+        "buy_operator0": "/<R",
+        "buy_operator1": "<R",
+        "buy_operator2": "/<R",
+        "buy_real_num0": 0.3,
+        "buy_real_num1": 0.5,
+        "buy_real_num2": 0.9,
+    }
+
+    # Sell hyperspace params:
+    sell_params = {
+        "sell_crossed_indicator0": "SMA-50",
+        "sell_crossed_indicator1": "SMA-50",
+        "sell_crossed_indicator2": "SMA-110",
+        "sell_indicator0": "SMA-15",
+        "sell_indicator1": "SMA-110",
+        "sell_indicator2": "SMA-5",
+        "sell_operator0": "=",
+        "sell_operator1": "CA",
+        "sell_operator2": "<",
+        "sell_real_num0": 0.9,
+        "sell_real_num1": 0.5,
+        "sell_real_num2": 0.8,
+    }
+
+    # ROI table:
+    minimal_roi = {
+        "0": 0.288,
+        "81": 0.101,
+        "170": 0.049,
+        "491": 0
+    }
+
+    # Trailing stop:
+    trailing_stop = True
+    trailing_stop_positive = 0.323
+    trailing_stop_positive_offset = 0.388
+    trailing_only_offset_is_reached = True
 
     # #################### END OF RESULT PLACE ####################
 
@@ -503,7 +549,7 @@ class GodStraNew(IStrategy):
     # Stoploss:
     stoploss = -1
     # Buy hypers
-    timeframe = '4h'
+    timeframe = '5m'
 
     def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         '''

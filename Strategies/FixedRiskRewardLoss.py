@@ -5,7 +5,7 @@ import numpy as np  # noqa
 import pandas as pd  # noqa
 from pandas import DataFrame
 
-from freqtrade.strategy import IStrategy
+from freqtrade.strategy.interface import IStrategy
 
 # --------------------------------
 # Add your lib to import here
@@ -29,7 +29,6 @@ class FixedRiskRewardLoss(IStrategy):
     losses by setting it to the buy rate + fees.
     """
 
-    INTERFACE_VERSION: int = 3
     custom_info = {
         'risk_reward_ratio': 3.5,
         'set_to_break_even_at_profit': 1,
@@ -97,7 +96,7 @@ class FixedRiskRewardLoss(IStrategy):
         # dataframe['rsi'] = ta.RSI(dataframe)
         return dataframe
 
-    def populate_entry_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
+    def populate_buy_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         """
         Placeholder Strategy: buys when SAR is smaller then candle before
         Based on TA indicators, populates the buy signal for the given dataframe
@@ -105,10 +104,10 @@ class FixedRiskRewardLoss(IStrategy):
         :return: DataFrame with buy column
         """
         # Allways buys
-        dataframe.loc[:, 'enter_long'] = 1
+        dataframe.loc[:, 'buy'] = 1
         return dataframe
 
-    def populate_exit_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
+    def populate_sell_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         """
         Placeholder Strategy: does nothing
         Based on TA indicators, populates the sell signal for the given dataframe
@@ -117,5 +116,5 @@ class FixedRiskRewardLoss(IStrategy):
         """
 
         # Never sells
-        dataframe.loc[:, 'exit_long'] = 0
+        dataframe.loc[:, 'sell'] = 0
         return dataframe

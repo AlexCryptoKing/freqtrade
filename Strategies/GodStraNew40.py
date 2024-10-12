@@ -448,7 +448,39 @@ def condition_generator(dataframe, operator, indicator, crossed_indicator, real_
     return condition, dataframe
 
 
-class GodStraNew(IStrategy):
+# Buy hyperspace params:
+buy_params = {
+    "buy_crossed_indicator0": "SMA-5",
+    "buy_crossed_indicator1": "SMA-12",
+    "buy_crossed_indicator2": "SMA-5",
+    "buy_indicator0": "SMA-15",
+    "buy_indicator1": "SMA-100",
+    "buy_indicator2": "SMA-110",
+    "buy_operator0": "<R",
+    "buy_operator1": ">",
+    "buy_operator2": ">",
+    "buy_real_num0": 0.2,
+    "buy_real_num1": 0.5,
+    "buy_real_num2": 1.0,
+}
+
+# Sell hyperspace params:
+sell_params = {
+    "sell_crossed_indicator0": "SMA-100",
+    "sell_crossed_indicator1": "SMA-100",
+    "sell_crossed_indicator2": "SMA-15",
+    "sell_indicator0": "SMA-5",
+    "sell_indicator1": "SMA-5",
+    "sell_indicator2": "SMA-12",
+    "sell_operator0": "CB",
+    "sell_operator1": "CUT",
+    "sell_operator2": "OT",
+    "sell_real_num0": 0.6,
+    "sell_real_num1": 0.5,
+    "sell_real_num2": 0.7,
+}
+
+class GodStraNew40(IStrategy):
     # #################### RESULTS PASTE PLACE ####################
 
     # #################### END OF RESULT PLACE ####################
@@ -456,49 +488,49 @@ class GodStraNew(IStrategy):
     # TODO: Its not dry code!
     # Buy Hyperoptable Parameters/Spaces.
     buy_crossed_indicator0 = CategoricalParameter(
-        god_genes_with_timeperiod, default="ADD-20", space='buy')
+        god_genes_with_timeperiod, default=buy_params["buy_crossed_indicator0"], space='buy')
     buy_crossed_indicator1 = CategoricalParameter(
-        god_genes_with_timeperiod, default="ASIN-6", space='buy')
+        god_genes_with_timeperiod, default=buy_params["buy_crossed_indicator1"], space='buy')
     buy_crossed_indicator2 = CategoricalParameter(
-        god_genes_with_timeperiod, default="CDLEVENINGSTAR-50", space='buy')
+        god_genes_with_timeperiod, default=buy_params["buy_crossed_indicator2"], space='buy')
 
     buy_indicator0 = CategoricalParameter(
-        god_genes_with_timeperiod, default="SMA-100", space='buy')
+        god_genes_with_timeperiod, default=buy_params["buy_indicator0"], space='buy')
     buy_indicator1 = CategoricalParameter(
-        god_genes_with_timeperiod, default="WILLR-50", space='buy')
+        god_genes_with_timeperiod, default=buy_params["buy_indicator1"], space='buy')
     buy_indicator2 = CategoricalParameter(
-        god_genes_with_timeperiod, default="CDLHANGINGMAN-20", space='buy')
+        god_genes_with_timeperiod, default=buy_params["buy_indicator2"], space='buy')
 
-    buy_operator0 = CategoricalParameter(operators, default="/<R", space='buy')
-    buy_operator1 = CategoricalParameter(operators, default="<R", space='buy')
-    buy_operator2 = CategoricalParameter(operators, default="CB", space='buy')
+    buy_operator0 = CategoricalParameter(operators, default=buy_params["buy_operator0"], space='buy')
+    buy_operator1 = CategoricalParameter(operators, default=buy_params["buy_operator1"], space='buy')
+    buy_operator2 = CategoricalParameter(operators, default=buy_params["buy_operator2"], space='buy')
 
-    buy_real_num0 = DecimalParameter(0, 1, decimals=DECIMALS,  default=0.89009, space='buy')
-    buy_real_num1 = DecimalParameter(0, 1, decimals=DECIMALS, default=0.56953, space='buy')
-    buy_real_num2 = DecimalParameter(0, 1, decimals=DECIMALS, default=0.38365, space='buy')
+    buy_real_num0 = DecimalParameter(0, 1, decimals=DECIMALS,  default=buy_params["buy_real_num0"], space='buy')
+    buy_real_num1 = DecimalParameter(0, 1, decimals=DECIMALS, default=buy_params["buy_real_num1"], space='buy')
+    buy_real_num2 = DecimalParameter(0, 1, decimals=DECIMALS, default=buy_params["buy_real_num2"], space='buy')
 
     # Sell Hyperoptable Parameters/Spaces.
     sell_crossed_indicator0 = CategoricalParameter(
-        god_genes_with_timeperiod, default="CDLSHOOTINGSTAR-150", space='sell')
+        god_genes_with_timeperiod, default=sell_params["sell_crossed_indicator0"], space='sell')
     sell_crossed_indicator1 = CategoricalParameter(
-        god_genes_with_timeperiod, default="MAMA-1-100", space='sell')
+        god_genes_with_timeperiod, default=sell_params["sell_crossed_indicator1"], space='sell')
     sell_crossed_indicator2 = CategoricalParameter(
-        god_genes_with_timeperiod, default="CDLMATHOLD-6", space='sell')
+        god_genes_with_timeperiod, default=sell_params["sell_crossed_indicator2"], space='sell')
 
     sell_indicator0 = CategoricalParameter(
-        god_genes_with_timeperiod, default="CDLUPSIDEGAP2CROWS-5", space='sell')
+        god_genes_with_timeperiod, default=sell_params["sell_indicator0"], space='sell')
     sell_indicator1 = CategoricalParameter(
-        god_genes_with_timeperiod, default="CDLHARAMICROSS-150", space='sell')
+        god_genes_with_timeperiod, default=sell_params["sell_indicator1"], space='sell')
     sell_indicator2 = CategoricalParameter(
-        god_genes_with_timeperiod, default="CDL2CROWS-5", space='sell')
+        god_genes_with_timeperiod, default=sell_params["sell_indicator2"], space='sell')
 
-    sell_operator0 = CategoricalParameter(operators, default="<R", space='sell')
-    sell_operator1 = CategoricalParameter(operators, default="D", space='sell')
-    sell_operator2 = CategoricalParameter(operators, default="/>R", space='sell')
+    sell_operator0 = CategoricalParameter(operators, default=sell_params["sell_operator0"], space='sell')
+    sell_operator1 = CategoricalParameter(operators, default=sell_params["sell_operator1"], space='sell')
+    sell_operator2 = CategoricalParameter(operators, default=sell_params["sell_operator2"], space='sell')
 
-    sell_real_num0 = DecimalParameter(0, 1, decimals=DECIMALS, default=0.09731, space='sell')
-    sell_real_num1 = DecimalParameter(0, 1, decimals=DECIMALS, default=0.81657, space='sell')
-    sell_real_num2 = DecimalParameter(0, 1, decimals=DECIMALS, default=0.87267, space='sell')
+    sell_real_num0 = DecimalParameter(0, 1, decimals=DECIMALS, default=sell_params["sell_real_num0"], space='sell')
+    sell_real_num1 = DecimalParameter(0, 1, decimals=DECIMALS, default=sell_params["sell_real_num1"], space='sell')
+    sell_real_num2 = DecimalParameter(0, 1, decimals=DECIMALS, default=sell_params["sell_real_num2"], space='sell')
 
     # Stoploss:
     stoploss = -1
