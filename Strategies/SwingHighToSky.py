@@ -34,7 +34,7 @@ rsiSellVal = 88
 
 
 class SwingHighToSky(IStrategy):
-    INTERFACE_VERSION = 3
+    INTERFACE_VERSION = 2
 
     timeframe = '15m'
 
@@ -87,24 +87,24 @@ class SwingHighToSky(IStrategy):
 
         return dataframe
 
-    def populate_entry_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
+    def populate_buy_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
 
         dataframe.loc[
             (
                 (dataframe[f'cci-{self.buy_cciTime.value}'] < self.buy_cci.value) &
                 (dataframe[f'rsi-{self.buy_rsiTime.value}'] < self.buy_rsi.value)
             ),
-            'enter_long'] = 1
+            'buy'] = 1
 
         return dataframe
 
-    def populate_exit_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
+    def populate_sell_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
 
         dataframe.loc[
             (
                 (dataframe[f'cci-sell-{self.sell_cciTime.value}'] > self.sell_cci.value) &
                 (dataframe[f'rsi-sell-{self.sell_rsiTime.value}'] > self.sell_rsi.value)
             ),
-            'exit_long'] = 1
+            'sell'] = 1
 
         return dataframe
