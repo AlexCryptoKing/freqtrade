@@ -25,7 +25,7 @@ freqtrade download-data -c user_data/config-torch.json --timerange 20240701-2024
 freqtrade hyperopt --hyperopt-loss SharpeHyperOptLossDaily --spaces buy sell stoploss -c user_data/config-torch.json --strategy haFbmS --timerange=20240601-20240914 --epochs 100
 
 
-## Contributing
+## Quick Start
 [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/alex15_08)
 [![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/vfJQ5pftwX)
 
