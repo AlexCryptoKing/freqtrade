@@ -18,7 +18,7 @@ git clone https://github.com/AlexCryptoKing/freqtrade.git
 
 ```
 3. Download the data minimum 1 Month!
-```shell
+
 freqtrade download-data -c user_data/config-torch.json --timerange 20240701-20240801 --timeframe 15m 30m 1h 2h 4h 8h 1d --erase
 
 4. Hyperopt the Strategy!
