@@ -23,7 +23,7 @@ freqtrade download-data -c user_data/config-torch.json --timerange 20240701-2024
 
 4. Hyperopt the Strategy!
 freqtrade hyperopt --hyperopt-loss SharpeHyperOptLossDaily --spaces buy sell stoploss -c user_data/config-torch.json --strategy haFbmS --timerange=20240601-20240914 --epochs 100
-
+````
 
 ## Contributing
 Contacts: 
