@@ -29,7 +29,7 @@ freqtrade hyperopt --hyperopt-loss SharpeHyperOptLossDaily --spaces buy sell sto
 Contacts: 
 
 [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/alex15_08)
-[![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/vfJQ5pftwX)
+[![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/868PYrY2uG)
 
 Contributions to the project are welcome! If you find any issues or have suggestions for improvements, please open an
 issue or submit a pull request on the [GitHub repository](https://github.com/AlexCryptoKing/freqailstm.git).
